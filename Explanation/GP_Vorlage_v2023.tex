@@ -1,0 +1,88 @@
+% Header: Here are all packages used and some additional definitions
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[11pt,a4paper]{scrartcl}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage[onehalfspacing]{setspace}
+\usepackage{graphicx} % zum Einbinden von Graphiken
+\usepackage[breaklinks=true,colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue]{hyperref} % f. Referenzen
+\usepackage{amsmath,amsthm,amssymb,amsfonts} % Mathematik Umgebung 
+\usepackage{icomma} % Intelligentes Komma, das den richtigen Abstand zwischen Dezimalzahlen als auch in Formeln wählt.
+\usepackage[ngerman]{babel} % Deutsche Bezeichnungen bei Inhaltsangabe etc
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}    % andere Schriftsatzkodierung für richtige Silbentrennung bei Umlauten
+\usepackage{afterpage} % NEUE
+\usepackage{hyperref}
+\usepackage{cleveref}
+\usepackage[locale = DE,space-before-unit=true,per-mode = symbol]{siunitx} % Bessere Einheiten
+\usepackage{booktabs,multirow} % Pakete zur Erstellung von Tabellen
+\usepackage{placeins} % Definiert den Befehl “\FloatBarrier”, der die Ausgabe der davor eingebundenen Bilder erzwingt, befor der Text weiter geht. (Mit vorsicht zu verwenden)
+\usepackage[natbib,abbreviate=true,doi=false,style=numeric-comp,giveninits=true,sorting=none]{biblatex} % Modernes Paket zur Erzeugung von Bibliografien (benötigt biber!)
+\usepackage{csquotes} % Fortgeschrittene Funktionen für Zitate, für die deutsche Form der Anführungszeichen bei Referenzen
+\usepackage{minted} %für Code
+\usepackage{listings}
+
+\lstset{
+  language=C++,
+  literate=%
+    {ä}{{\"a}}1
+    {ö}{{\"o}}1
+    {ü}{{\"u}}1
+    {Ä}{{\"A}}1
+    {Ö}{{\"O}}1
+    {Ü}{{\"U}}1
+    {ß}{{\ss}}1
+}
+\addbibresource{MyBibliography.bib} % Ort der .bib Datei, die die Datenbank für Literatur/Referenzen enthält.
+
+\graphicspath{{Bilder/}}
+
+\DeclareSIUnit{\dBm}{dBm}
+\DeclareSIUnit[per-mode=reciprocal]\WN{\per\centi\meter}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+%
+\titlehead{\includegraphics[width=5cm]{}} %Bild oben links 
+\title{Proseminar: Effiziente Algorithmen}
+
+\author{Name\thanks{\href{mailto:name@mail.de}{name@mail.de}} \\Universität}
+\date{2. Februar 2024}
+\maketitle
+\vfill
+Proseminarleiter: Name meines Professors
+\newpage
+\renewcommand\abstractname{Kurzfassung}
+\section*{\abstractname}
+Diese Arbeit präsentiert Lösungsansätze zu zwei ausgewählten Problemen des mehrstufigen Programmierwettbewerbs, International Collegiate Programming Contest (ICPC). Die Probleme entstammen den jeweiligen finalen Runden des Wettbewerbs. Das Problem "Gene Folding", aus dem Jahr 2020, bezieht sich auf das effiziente Finden von Palindromen. Das zweite Problem "\text{A Safe Bet}" \string erfordert eine effiziente Berechnung von Schnittpunkten horizontaler und vertikaler Geraden und stammt aus dem Jahr 2012.
+\thispagestyle{empty}
+%
+%
+\tableofcontents
+\thispagestyle{empty}
+\cleardoublepage
+\pagenumbering{arabic} 
+\newpage
+%
+%
+\input{gene}
+%
+\input{safe}
+%
+\input{Anhang2}
+%
+%\input{Anhang} % Der Anhang ist in einer externen Datei "Anhang.tex" und wird hier in das Dokument eingefügt.
+
+%\printbibliography[]
+\vfill
+\newpage
+\section*{Erklärung}
+Hiermit versichere ich, dass ich diese Arbeit selbstständig verfasst und keine anderen als die angegebenen Quellen und Hilfsmittel verwendet habe.
+\begin{tabular}{@{}p{2.5in}p{2.5in}@{}}
+ \\[5\bigskipamount]
+  \dotfill & \dotfill \\
+  Student & Date
+  \centering
+  
+\end{tabular}
+
+\end{document}
